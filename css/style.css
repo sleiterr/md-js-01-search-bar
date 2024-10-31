@@ -1,0 +1,264 @@
+/* RESET CSS */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+html {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.625rem;
+  scroll-behavior: smooth;
+}
+body {
+  font-size: 1rem;
+  height: 100%;
+  line-height: 1;
+  /* background-color: #a9bfc3; */
+}
+button {
+  cursor: pointer;
+  background-color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+.container {
+  width: min(100%, 1140px); /* parent size 100% width */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* .section {
+  padding: 10px;
+} */
+
+/**=====================*/
+/**! SEARCH-CONTAINER */
+/**=====================*/
+
+.searc-container {
+  margin: 100px auto;
+}
+
+.serc-title {
+  font-weight: 600;
+  font-size: 65px;
+  /* color: mediumaquamarine; */
+  color: cornflowerblue;
+  letter-spacing: 0.04em;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+  gap: 26px;
+}
+
+input::placeholder {
+  font-size: 16px;
+  color: #666;
+  /* padding-left: 4px; */
+  /* border-left: 1px solid #333; */
+}
+
+.form {
+  position: relative;
+}
+
+#select {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.08em;
+  top: 1px;
+  left: 14px;
+  font-size: 14px;
+  color: #666;
+  border-right: 2px solid #9999;
+  border-radius: 50px 0 0 50px;
+  height: 94%;
+}
+
+#mob-select {
+  display: none;
+}
+
+.fa-solid {
+  position: absolute;
+  /* display: flex;
+  align-items: center; */
+  top: 14px;
+  right: 17px;
+  font-size: 18px;
+  color: #666;
+  border-radius: 50px 0 0 50px;
+  height: 94%;
+}
+
+select:focus {
+  outline: none;
+}
+
+input {
+  font-size: 18px;
+  padding: 10px 50px 10px 110px;
+  border: 2px solid #9999;
+  color: #333;
+  border-radius: 50px;
+  background-color: transparent;
+  /* width: 240px; */
+  min-width: 460px;
+}
+
+input[type='search'] {
+  appearance: none;
+}
+
+#search-bar:focus,
+#search-bar:active {
+  box-shadow: 0px 0px 15px 0px rgba(108, 108, 108, 0.5);
+  transition: ease-out 250ms;
+  outline: none;
+}
+
+.btn-search {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  background: rgb(31, 135, 219);
+  border: none;
+  border-radius: 4px;
+
+  color: #fff;
+  padding: 20px;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.btn-search:focus,
+.btn-search:hover {
+  background: rgb(31, 135, 219, 0.8);
+  transition: ease 250ms;
+}
+
+.btn-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 12px;
+}
+
+.btn-item {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  border: 1px solid #66666660;
+  border-radius: 50px;
+  
+  color: #333;
+  padding: 14px 26px;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.btn-item:focus,
+.btn-item:hover {
+  background-color: rgba(169, 169, 169, 0.171);
+  transition: ease-in-out 250ms;
+}
+
+.info-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 45px;
+  min-width: 560px;
+  gap: 30px;
+}
+
+.search-cart {
+  min-width: 320px;
+  min-height: 360px;
+  border-radius: 8px;
+  background-color: #a7a7a744;
+}
+
+img {
+  width: 320px;
+  height: 360px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.pending-title {
+  font-weight: 600;
+  font-size: 36px;
+  /* color: cornflowerblue; */
+  color: cadetblue;
+  margin-bottom: 36px;
+}
+
+.pending-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 620px;
+  height: 360px;
+  border-radius: 8px;
+  background-color: #a7a7a744;
+}
+
+.pending-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pending-items {
+  font-weight: 700;
+  font-size: 16px;
+  color: #333;
+}
+
+.pending-span {
+  font-weight: 400;
+  font-size: 14px;
+  color: #666;
+  margin-left: 4px;
+}

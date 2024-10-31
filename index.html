@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="searcbar" content="home work" />
+    <meta name="keywords" content="searc data" />
+    <meta name="author" content="oleg troian" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/media-queries.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.css"
+      integrity="sha512-8BU3emz11z9iF75b10oPjjpamM4Mz23yQFQymbtwyPN3mNWHxpgeqyrYnkIUP6A8KyAj5k2p3MiYLtYqew7gIw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>search bar</title>
+  </head>
+  <body>
+    <main>
+      <section class="searc-section">
+        <div class="searc-container container">
+          <h1 class="serc-title">Seaarcher</h1>
+          <div class="search-box">
+            <form class="form">
+              <select name="country" id="select">
+                <option value="Danmark">Item-1</option>
+                <option value="Faeroeerne">Item-2</option>
+                <option value="Groenland">Item-3</option>
+              </select>
+
+              <input
+                type="search"
+                id="search-bar"
+                placeholder="Search ..."
+                name="q"
+                size="30"
+              />
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </form>
+            <button type="button" class="btn-search">Search</button>
+          </div>
+          <div class="output"></div>
+
+          <div class="btn-items">
+            <!-- <button type="button" class="btn-item" id="0">Ford</button>
+            <button type="button" class="btn-item" id="1">Fiat</button>
+            <button type="button" class="btn-item" id="2">Suzuki</button>
+            <button type="button" class="btn-item" id="3">Skoda</button>
+            <button type="button" class="btn-item">item</button>
+            <button type="button" class="btn-item">item</button>
+            <button type="button" class="btn-item">item</button>
+            <button type="button" class="btn-item">item</button>
+            <button type="button" class="btn-item">item</button>
+            <button type="button" class="btn-item">item</button> -->
+          </div>
+
+          <select name="country" id="mob-select">
+            <option value="" disabled selected class="select-value">select value</option>
+            <!-- <option value="item" class="select-item">Item-1</option>
+            <option value="item" class="select-item">Item-2</option>
+            <option value="item" class="select-item">Item-3</option>
+            <option value="item" class="select-item">Item-4</option>
+            <option value="item" class="select-item">Item-5</option>
+            <option value="item" class="select-item">Item-6</option>
+            <option value="item" class="select-item">Item-7</option>
+            <option value="item" class="select-item">Item-8</option>
+            <option value="item" class="select-item">Item-9</option>
+            <option value="item" class="select-item">Item-10</option> -->
+          </select>
+          <div class="info-box">
+            <div class="search-cart"></div>
+            <div class="pending-box">
+              <div class="pending-list"></div>
+              <!-- <h3 class="pending-title">Name</h3>
+              <ul class="pending-list">
+                <li class="pending-items">
+                  City: <span class="pending-span">Randers</span>
+                </li>
+                <li class="pending-items">
+                  Birthday: <span class="pending-span">15/06/01</span>
+                </li>
+                <li class="pending-items">
+                  Age: <span class="pending-span">45 dage</span>
+                </li>
+                <li class="pending-items">
+                  Kolding:
+                  <span class="pending-span">Koding, katte, klaverspil</span>
+                </li>
+              </ul> -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script src="./js/script.js" defer></script>
+</html>
