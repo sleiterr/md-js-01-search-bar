@@ -1,7 +1,10 @@
-let btnContainer = document.querySelector(".btn-items");
-let profileInfo = document.querySelector(".pending-list");
-let profileImg = document.querySelector(".search-cart");
-let mobSelect = document.querySelector("#mob-select");
+const btnContainer = document.querySelector(".btn-items");
+const profileInfo = document.querySelector(".pending-list");
+const profileImg = document.querySelector(".search-cart");
+const mobSelect = document.querySelector("#mob-select");
+
+const searchBar = document.querySelector("#search-bar");
+const searchButton = document.querySelector(".btn-search");
 
 let profiles = [
   {
@@ -125,7 +128,7 @@ function updateProfile() {
 
   btnNames.forEach((button) => {
     button.addEventListener("click", () => {
-      let id = button.getAttribute("data-id");
+      let id = parseInt(button.getAttribute("data-id"), 10); //система числення (radix).
       let imgSrc = button.getAttribute("data-img");
 
       profileImg.innerHTML = `
@@ -144,6 +147,55 @@ function updateProfile() {
 }
 
 updateProfile();
+
+
+function search(e) {
+  const searchTerm = e.target.value.toLowerCase();
+
+  // console.log(searchTerm);
+  // console.log('ldjfkjdf');
+  const results = profiles.filter((profile) =>
+    profile.firstName.toLocaleLowerCase().startsWith(searchTerm)
+  );
+
+  console.log(results);
+
+  let buttonsHTML = "";
+  results.forEach((profile) => {
+    buttonsHTML = `<button class="btn-item" data-id='${profile.id}' data-img='${profile.img}' >${profile.firstName}</button>`;
+  });
+
+  btnContainer.innerHTML = buttonsHTML;
+
+  updateProfile();
+}
+
+const searchbar = document.querySelector("#search-bar");
+searchbar.addEventListener("input", search);
+
+// //! button-event-search-bar
+
+// function heandleSearch(e) {
+//   e.preventDefault();
+
+//   const searchValue = searchBar.value.trim();
+
+//   if (searchValue) {
+//     console.log("input name", searchValue);
+//   } else {
+//     console.log("search bar is empty");
+//   }
+// }
+
+// searchButton.addEventListener("click", heandleSearch);
+// searchBar.addEventListener("keydown", (e) => {
+//   if (e.key === "Enter") {
+//     e.preventDefault();
+//     searchProfile();
+//   }
+// });
+
+//////////////////////////////////////////////////////////////
 
 // mobSelect.addEventListener("change", (e) => {
 //   let selectedId = e.target.value;
@@ -167,95 +219,3 @@ updateProfile();
 //     <p class="pending-items">birthday: <span class='pending-span'>${profile.birthday}</span></p>
 //   `;
 // }
-
-function search(e) {
-  const searchTerm = e.target.value;
-  // console.log(searchTerm);
-  // console.log('ldjfkjdf');
-  const results = profiles.filter((profile) =>
-    profile.firstName.includes(searchTerm)
-  );
-
-  console.log(results);
-
-  let buttonsHTML = "";
-  results.forEach((profile) => {
-    buttonsHTML = `<button class="btn-item" data-id='${profile.id}' data-img='${profile.img}' >${profile.firstName}</button>`;
-  });
-
-  btnContainer.innerHTML = buttonsHTML;
-
-  updateProfile();
-}
-
-const searchbar = document.querySelector("#search-bar");
-searchbar.addEventListener("input", search);
-
-// let output = document.querySelector(".output");
-
-// let buttons = document.querySelectorAll(".btn-item");
-
-// let car = {
-//   // key    value
-//   brand: "Ford",
-//   model: "Fiesta",
-//   year: 2006,
-//   color: "Gul",
-// };
-
-// let cars = [
-//   {
-//     brand: "Ford",
-//     model: "Fiesta",
-//     year: 2006,
-//     color: "Gul",
-//     id: 0,
-//   },
-
-//   {
-//     brand: "Fiat",
-//     model: "Punto",
-//     year: 2006,
-//     color: "Gul",
-//     id: 1,
-//   },
-
-//   {
-//     brand: "Suzuki",
-//     model: "Swift",
-//     year: 2006,
-//     color: "Gul",
-//     id: 2,
-//   },
-
-//   {
-//     brand: "Skoda",
-//     model: "Fabia",
-//     year: 2006,
-//     color: "Gul",
-//     id: 3,
-//   },
-// ];
-
-// // cars.forEach((car) => {
-// //   output.innerHTML += `
-// //   <p>Bilmærke: ${car.brand}</p>
-// //   <p>Model: ${car.model}</p>
-// //   <p>Årgang: ${car.year}</p>
-// //   <p>Farve: ${car.color}</p>
-// //   `;
-// // });
-
-// buttons.forEach((button) => {
-
-//   buttons.addEventListener("click", (e) => {
-//     let id = e.target.id;
-
-//     output.innerHTML = `
-//       <p>Bilmærke: ${cars[id].brand}</p>
-//       <p>Model: ${cars[id].model}</p>
-//       <p>Årgang: ${cars[id].year}</p>
-//       <p>Farve: ${cars[id].color}</p>
-//     `;
-//   });
-// });
