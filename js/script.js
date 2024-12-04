@@ -116,39 +116,80 @@ let profiles = [
 
 profiles.forEach((profile) => {
   btnContainer.innerHTML += `<button class="btn-item" data-id='${profile.id}' data-img='${profile.img}' >${profile.firstName}</button>`;
+
   mobSelect.innerHTML += `<option value="${profile.id}">${profile.firstName}</option>`;
 });
 
-let btnNames = document.querySelectorAll(".btn-item");
+function updateProfile() {
+  let btnNames = document.querySelectorAll(".btn-item");
 
-btnNames.forEach((button) => {
-  button.addEventListener("click", () => {
-    let id = button.getAttribute("data-id");
-    updateProfile(id);
+  btnNames.forEach((button) => {
+    button.addEventListener("click", () => {
+      let id = button.getAttribute("data-id");
+      let imgSrc = button.getAttribute("data-img");
+
+      profileImg.innerHTML = `
+        <img src='${imgSrc}' alt='${profiles.firstName}'/>
+      `;
+
+      profileInfo.innerHTML = `
+       <h3 class='pending-title'>${profiles[id].firstName}, ${profiles[id].age} age</h3>
+       <p class="pending-items">City: <span class='pending-span'>${profiles[id].city}</span></p>
+       <p class="pending-items">hobby: <span class='pending-span'>${profiles[id].hobby}</span></p>
+       <p class="pending-items">birthday: <span class='pending-span'>${profiles[id].birthday}</span></p>
+     `;
+      // updateProfile(id);
+    });
   });
-});
+}
 
-mobSelect.addEventListener("change", (e) => {
-  let selectedId = e.target.value;
-  updateProfile(selectedId);
-});
+updateProfile();
+
+// mobSelect.addEventListener("change", (e) => {
+//   let selectedId = e.target.value;
+//   updateProfile(selectedId);
+// });
 
 // let imgSrc = button.getAttribute("data-img");
 
-function updateProfile(id) {
-  let profile = profiles[id];
-  let imgSrc = profile.img;
+// function updateProfile(id) {
+//   let profile = profiles[id];
+//   let imgSrc = profile.img;
 
-  profileImg.innerHTML = `
-    <img src='${imgSrc}' alt='${profile.firstName}'/>
-  `;
-  profileInfo.innerHTML = `
-    <h3 class='pending-title'>${profile.firstName}, ${profile.age} age</h3>
-    <p class="pending-items">City: <span class='pending-span'>${profile.city}</span></p>
-    <p class="pending-items">hobby: <span class='pending-span'>${profile.hobby}</span></p>
-    <p class="pending-items">birthday: <span class='pending-span'>${profile.birthday}</span></p>
-  `;
+//   profileImg.innerHTML = `
+//     <img src='${imgSrc}' alt='${profile.firstName}'/>
+//   `;
+
+//   profileInfo.innerHTML = `
+//     <h3 class='pending-title'>${profile.firstName}, ${profile.age} age</h3>
+//     <p class="pending-items">City: <span class='pending-span'>${profile.city}</span></p>
+//     <p class="pending-items">hobby: <span class='pending-span'>${profile.hobby}</span></p>
+//     <p class="pending-items">birthday: <span class='pending-span'>${profile.birthday}</span></p>
+//   `;
+// }
+
+function search(e) {
+  const searchTerm = e.target.value;
+  // console.log(searchTerm);
+  // console.log('ldjfkjdf');
+  const results = profiles.filter((profile) =>
+    profile.firstName.includes(searchTerm)
+  );
+
+  console.log(results);
+
+  let buttonsHTML = "";
+  results.forEach((profile) => {
+    buttonsHTML = `<button class="btn-item" data-id='${profile.id}' data-img='${profile.img}' >${profile.firstName}</button>`;
+  });
+
+  btnContainer.innerHTML = buttonsHTML;
+
+  updateProfile();
 }
+
+const searchbar = document.querySelector("#search-bar");
+searchbar.addEventListener("input", search);
 
 // let output = document.querySelector(".output");
 
